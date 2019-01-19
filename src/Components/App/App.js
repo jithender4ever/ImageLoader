@@ -7,20 +7,17 @@ import {configureCall} from "../utils/configureCall";
 
 export default class App extends React.Component {
     state = {
-        images : [],
-        isFetching: false
+        images : []
     };
 
     onSubmitHandler  = async term => {
-        this.setState({isFetching: true});
         const response = await configureCall(term);
         this.handleImages(response);
     };
 
     handleImages = (res) => {
         this.setState({
-            images: res.data.results,
-            isFetching: false
+            images: res.data.results
         });
     };
 
